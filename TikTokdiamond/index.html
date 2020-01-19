@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+   	body{
+   		padding: 0;
+   		margin:0;
+   	}
+    .bg {
+        background: url('first.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 10.8rem;
+    }
+
+    .leftside {
+        background: url(leftside.png);
+        background-size: 100%;
+        width: 1.70rem;
+        height: 3.86rem;
+        position: absolute;
+        top: 2.75rem;
+        left: 0px;
+    }
+
+    .bg2 {
+        background: url('bg2.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        visibility: hidden;
+        width: 10.8rem;
+        height: 49.3rem;
+        position: absolute;
+        top: 0;
+        left: 10.8rem;
+    }
+
+    .bg3 {
+        background: url('1.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 10.8rem;
+        height: auto;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        top: 0px;
+        left: 0px;
+    }
+
+    #img1 {
+        width: 5px;
+        height: 7px;
+        transition: all 0.6s;
+        position: absolute;
+        visibility:hidden;
+        top: -12rem;
+        left: 7.49rem;
+    }
+    #back {
+        width: 5px;
+        height: 7px;
+        transition: all 0.6s;
+        position: absolute;
+        visibility:hidden;
+        top: -12rem;
+        left: 7.49rem;
+    }
+
+    #fankai {
+        position: absolute;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        top: 16rem;
+        width: 6.71rem;
+    }
+    #fankai2 {
+        position: absolute;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        top: 16rem;
+        width: 6.71rem;
+        display: none;
+    }
+
+    .flip-container {
+        perspective: 1000px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-top: 740px;
+    }
+
+    .flip-container,
+    .front,
+    .back
+    {
+        width: 501px;
+        height: 701px;
+    }
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .front,
+    .back {
+        position: absolute;
+    }
+
+    .back {
+        transform: rotateY(360deg);
+    }
+    .youle{
+        width: 4.5rem;
+        height: 0.71rem;
+        background: url(youle.png);
+        position: absolute;
+        background-size: 100%;
+        margin-left: 50%;
+        margin-top: -27rem;
+        display: none;
+        transform: translateX(-50%);
+    }
+    .youshang{
+        width: 2rem;
+        height: 2rem;
+        background: url(6.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        margin-left: 75%;
+        margin-top: -41.3rem;
+        display: none;
+    }
+    #img2 {
+        width: 5px;
+        height: 7px;
+        transition: all 0.6s;
+        position: absolute;
+        visibility:hidden;
+        top: -12rem;
+        left: 7.49rem;
+    }
+    .iconbg{
+        width: 9.5rem;
+        height: 5.3rem;
+        background: url(iconbg.gif);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 8.4rem;
+        left: 0.7rem;
+    }
+    .xiaofa{
+        width: 1.82rem;
+        height: 2rem;
+        position: absolute;
+        background: url(fa.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 20.55rem;
+        left: 0.5rem;
+        display: none;
+    }
+    .heiye{
+        width: 100%;
+        height: 23.1rem;
+        position: absolute;
+        z-index: 999;
+        background: url(heiye2.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0.03rem;
+        display: none;
+        transition:all ease 3s;
+        opacity: 0;
+    }
+    .jingzhi{
+        width: 100%;
+        height: 23.1rem;
+        position: absolute;
+        background: url(jingzhi.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 980;
+        top: -0.5rem;
+        left: 0.03rem;
+        display: none;
+        transition: all ease 1s
+    }
+    .douyinyuansu{
+        width: 100%;
+        height: 6.5rem;
+        position: absolute;
+        top: 8.8rem;
+        left: 2.65rem;
+        transition: all 0.6s;
+        background: url(douyinyuansu.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: none;
+        z-index: 995;
+    }
+    #douyinicon{
+        width: 2rem;
+        height: 2.3rem;
+        position: absolute;
+        top: 0.2rem;
+        left: 2.5rem;
+        display:none;
+    }
+    #xiao1{
+        width: 0.6rem;
+        height: 0.7rem;
+        position: absolute;
+        top: 17.45rem;
+        left: 5.85rem;
+        display: none;
+    }
+
+
+    @keyframes hidetip {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes hidetip {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    </style>
+    <script type="text/javascript">
+    	window.onload = function(){
+    		var pwidth = 1080;
+    		var prem = 100;
+    		var devicePixelRatio = 1;
+		    var scale = 1 / devicePixelRatio;
+		    var meta = document.createElement('meta');
+		    var head = document.getElementsByTagName('head')[0];
+		    var firstChild = head.firstChild;
+		    meta.setAttribute('name','viewport');
+		    head.insertBefore(meta,firstChild);
+		    document.querySelector('meta[name="viewport"]').setAttribute('content','width=device-width,initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+		    
+		    //根据样稿设置浏览器默认字体大小
+		    var html = document.getElementsByTagName("html")[0];
+		    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+		    html.style.fontSize = oWidth/pwidth*prem + "px";
+    	}
+    </script>
+</head>
+
+<body>
+    <div class="bg" id='bg'>
+    </div>
+    <div class="leftside" id="leftside">
+    </div>
+    <div class="bg2" id="bg2">
+        <div class="iconbg">
+            <img src="douyinicon.gif" alt="" id="douyinicon">
+        </div>
+        <img src="1.png" alt="" id='xiao1'>
+        <div class="bg3" id="bg3">
+            <div class="heiye">
+                
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="back">
+                        <img src="fa1.png" alt="" id="back">
+                    </div>
+                    <div class="front">
+                        <img src="ka1.png" alt="" id="img1">
+                    </div>
+                    <img src="ka2.jpg" alt="" id="img2">
+                </div>
+            </div>
+            <div class="youle"></div>
+            <div class="xiaofa"></div>
+            <div class="jingzhi"></div>
+            <div class="youshang"></div>
+            <div class="douyinyuansu"></div>
+            <img src="fankai.png" alt="" id="fankai">
+            <img src="fankai.png" alt="" id="fankai2">
+        </div>
+    </div>
+    <script type="text/javascript">
+    var btn = document.getElementById('leftside');
+    var bg = document.getElementById('bg');
+    var bg2 = document.getElementById('bg2');
+    var bg3 = document.getElementById('bg3');
+    var img1 = document.getElementById('img1');
+    var back = document.getElementById('back');
+    var flipper = document.getElementsByClassName('flipper')[0];
+    var youle = document.getElementsByClassName('youle')[0];
+    var fankai = document.getElementById('fankai');
+    var img2 = document.getElementById('img2');
+    var fankai2 = document.getElementById('fankai2');
+    var youshang = document.getElementsByClassName('youshang')[0];
+    var xiaofa = document.getElementsByClassName('xiaofa')[0];
+    var heiye = document.getElementsByClassName('heiye')[0];
+    var jingzhi = document.getElementsByClassName('jingzhi')[0];
+    var douyinyuansu = document.getElementsByClassName('douyinyuansu')[0];
+    var douyinicon = document.getElementById('douyinicon');
+    var xiao1 = document.getElementById('xiao1');
+    bg.style.height =document.documentElement.clientHeight+'px';
+
+    btn.onclick = function() {
+    	bg2.style.visibility = 'visible';
+        animate1(bg2, 0);
+    }
+
+    function animate1(ele, target) {
+        //要用定时器，先清除定时器
+        //一个盒子只能有一个定时器，这样儿的话，不会和其他盒子出现定时器冲突
+        //而定时器本身讲成为盒子的一个属性
+        clearInterval(ele.timer);
+        //我们要求盒子既能向前又能向后，那么我们的步长就得有正有负
+        //目标值如果大于当前值取正，目标值如果小于当前值取负
+        var speed = target > ele.offsetLeft ? 3 : -50;
+        ele.timer = setInterval(function() {
+            //在执行之前就获取当前值和目标值之差
+            var val = target - ele.offsetLeft;
+            ele.style.left = ele.offsetLeft + speed + "px";
+            //目标值和当前值只差如果小于步长，那么就不能在前进了
+            //因为步长有正有负，所有转换成绝对值来比较
+            if (Math.abs(val) <= Math.abs(speed)) {
+                ele.style.left = target + "px";
+                clearInterval(ele.timer);
+            }
+        }, 30)
+    }
+    bg2.onclick = function() {
+        bg3.style.display = 'block';
+    }
+    bg3.onclick = function() {
+        img1.style.visibility = 'visible';
+        back.style.visibility = 'visible';
+        img1.style.transform = 'scale(40)';
+        back.style.transform = 'scale(40)';
+    }
+    fankai.onclick = function() {
+        fankai.style.animation = 'hidetip 0.3s 1';
+        fankai.style.animationFillMode = 'forwards';
+        fankai.style.display = 'none';
+        flipper.style.transform = 'rotateY(180deg)';
+        img1.style.display = 'none';
+        youle.style.display = 'block';
+        var tm1 = setTimeout(function () {
+        // 这里就是处理的事件
+            back.style.transform = 'translate(4rem,11.3rem) scale(9)';
+            youle.style.display = 'none';
+            heiye.style.display = 'block';
+            var tm2 = setTimeout(function(){
+                back.style.display = 'none';
+                xiaofa.style.display = 'block';
+                heiye.style.opacity = 1;
+                var tmhy = setTimeout(function(){
+                    douyinyuansu.style.display='block';
+                    jingzhi.style.display = 'block';
+                    heiye.style.opacity = 0;
+                    var tmqul =setTimeout(function(){
+                        heiye.style.display = 'none';
+                        jingzhi.style.opacity = 0;
+                        jingzhi.style.display = 'none';
+                        douyinyuansu.style.transform = 'translate(-5.15rem, 7.7rem) scale(0.18)';
+                        var tm3 = setTimeout(function(){
+                            img2.style.visibility = 'visible';
+                            img2.style.transform = 'scale(40)';
+                            fankai2.style.display = 'block';
+                            youshang.style.display = 'block';
+                            var tm4  = setTimeout(function(){
+                                bg3.style.display = 'none';
+                                douyinicon.style.display = 'block';
+                                xiao1.style.display = 'block';
+                                clearTimeout(tm4);
+                            },400)
+                            clearTimeout(tm3);
+                        },300);
+                        clearTimeout(tmqul);
+                    },500)
+                    clearTimeout(tmhy);
+                },4000)
+                clearTimeout(tm2);
+            },500);
+            clearTimeout(tm1);
+        }, 500);
+    }
+    </script>
+</body>
+
+</html>
